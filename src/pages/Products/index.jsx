@@ -17,6 +17,10 @@ function Products({ data, deleteProduct }) {
           { code: item.barcode, type: item.barcodeType },
           item.barcode,
           item.price,
+          item.INR,
+          item.CAD,
+          item.GBP,
+          item.USD,
           item.barcode,
         ])}
         columns={[
@@ -74,7 +78,7 @@ function Products({ data, deleteProduct }) {
           "Code",
           {
             name: "price",
-            label: "Price",
+            label: "Price (EUR)",
             options: {
               customBodyRender: (value) => {
                 return (
@@ -82,6 +86,74 @@ function Products({ data, deleteProduct }) {
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
                       currency: "EUR",
+                    }).format(value)}
+                  </Typography>
+                );
+              },
+              setCellProps: (value) => ({ sx: { py: 0 } }),
+            },
+          },
+          {
+            name: "price",
+            label: "Price (INR)",
+            options: {
+              customBodyRender: (value) => {
+                return (
+                  <Typography>
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "INR",
+                    }).format(value)}
+                  </Typography>
+                );
+              },
+              setCellProps: (value) => ({ sx: { py: 0 } }),
+            },
+          },
+          {
+            name: "price",
+            label: "Price (CAD)",
+            options: {
+              customBodyRender: (value) => {
+                return (
+                  <Typography>
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "CAD",
+                    }).format(value)}
+                  </Typography>
+                );
+              },
+              setCellProps: (value) => ({ sx: { py: 0 } }),
+            },
+          },
+          {
+            name: "price",
+            label: "Price (GBP)",
+            options: {
+              customBodyRender: (value) => {
+                return (
+                  <Typography>
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "GBP",
+                    }).format(value)}
+                  </Typography>
+                );
+              },
+              setCellProps: (value) => ({ sx: { py: 0 } }),
+            },
+          },
+          {
+            name: "price",
+            label: "Price (USD)",
+            options: {
+              customBodyRender: (value) => {
+                return (
+                  <Typography>
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
                     }).format(value)}
                   </Typography>
                 );
